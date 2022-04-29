@@ -26,7 +26,7 @@ public class LaserLine : MonoBehaviour
     float globalProgress;
 
     // Updating and Fading
-    void DrawLine() 
+    void DrawLine()
     {
         float progress = shaderProgressCurve.Evaluate(globalProgress);
         lr.material.SetFloat("_Progress", progress);
@@ -44,8 +44,15 @@ public class LaserLine : MonoBehaviour
             HitLength = hit.distance;
             positionForExplosion = Vector3.MoveTowards(hit.point, transform.position, moveHitToSource);
             spawnExplosion = true;
-            particleSpawnPositions = new Vector3[Mathf.RoundToInt(hit.distance*2)];
+            particleSpawnPositions = new Vector3[Mathf.RoundToInt(hit.distance * 2)];
             endPoint = hit.point;
+        }
+        else
+        {
+            HitLength = maxLength;
+            particleSpawnPositions = new Vector3[Mathf.RoundToInt(maxLength * 2)];
+            spawnExplosion = false;
+            endPoint = transform.position + transform.forward * maxLength;
         }
 
         lr.SetPosition(0, transform.position);
@@ -62,13 +69,13 @@ public class LaserLine : MonoBehaviour
 
     void Start()
     {
-        
+
         spawnExplosion = false;
         lr = GetComponent<LineRenderer>();
         HitLength = 0;
         CastLaserRay();
         DrawLine();
-       
+
 
         if (spawnExplosion)
         {
@@ -76,12 +83,16 @@ public class LaserLine : MonoBehaviour
         }
 
         float n = 0f;
-        for (int i = 0; i < particleSpawnPositions.Length; i++)
+
+        if (particleSpawnPositions != null)
         {
-            particleSpawnPositions[i] = Vector3.Lerp(transform.position, endPoint, n);
-            psEmbers.transform.position = particleSpawnPositions[i];
-            psEmbers.Emit(trailParticleCount);
-            n += (1f / particleSpawnPositions.Length);
+            for (int i = 0; i < particleSpawnPositions.Length; i++)
+            {
+                particleSpawnPositions[i] = Vector3.Lerp(transform.position, endPoint, n);
+                psEmbers.transform.position = particleSpawnPositions[i];
+                psEmbers.Emit(trailParticleCount);
+                n += (1f / particleSpawnPositions.Length);
+            }
         }
 
     }
