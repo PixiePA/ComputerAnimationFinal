@@ -9,6 +9,10 @@ public class CharacterShootIK : MonoBehaviour
     [SerializeField] float LeftHintWeight = 0;
     [SerializeField] float LeftHandGripWeight = 0;
 
+    [SerializeField] int id;
+
+    [SerializeField] GameObject Laser;
+
     [SerializeField] Transform AimTarget;
     Vector3 AimTargetPosition;
 
@@ -21,6 +25,9 @@ public class CharacterShootIK : MonoBehaviour
     [SerializeField] Transform LeftHandHint;
     Vector3 LeftHandHintPosition;
 
+    [SerializeField] Transform GunBarrel;
+    Vector3 GunBarrelPosition;
+
     [SerializeField] Animator animator;
     // Start is called before the first frame update
     private void Awake()
@@ -29,6 +36,8 @@ public class CharacterShootIK : MonoBehaviour
         {
             animator = GetComponent<Animator>();
         }
+
+        //VanguardEvents.onGunFired += FireGun;
     }
 
     void Start()
@@ -47,19 +56,29 @@ public class CharacterShootIK : MonoBehaviour
 
     private void OnAnimatorIK(int layerIndex)
     {
+        float weightMultiplier = animator.GetFloat("ikShoot");
+
         animator.SetIKPosition(AvatarIKGoal.RightHand, AimTargetPosition);
-        animator.SetIKPositionWeight(AvatarIKGoal.RightHand, AimWeight);
+        animator.SetIKPositionWeight(AvatarIKGoal.RightHand, AimWeight * weightMultiplier);
 
         animator.SetIKHintPosition(AvatarIKHint.RightElbow, RightHandHintPosition);
-        animator.SetIKHintPositionWeight(AvatarIKHint.RightElbow, RightHintWeight);
+        animator.SetIKHintPositionWeight(AvatarIKHint.RightElbow, RightHintWeight * weightMultiplier);
 
         animator.SetIKPosition(AvatarIKGoal.LeftHand, GunGripPointPosition);
-        animator.SetIKPositionWeight(AvatarIKGoal.LeftHand, LeftHandGripWeight);
+        animator.SetIKPositionWeight(AvatarIKGoal.LeftHand, LeftHandGripWeight * weightMultiplier);
 
         animator.SetIKHintPosition(AvatarIKHint.LeftElbow, LeftHandHintPosition);
-        animator.SetIKHintPositionWeight(AvatarIKHint.LeftElbow, LeftHintWeight);
+        animator.SetIKHintPositionWeight(AvatarIKHint.LeftElbow, LeftHintWeight * weightMultiplier);
 
         animator.SetLookAtPosition(AimTargetPosition);
-        animator.SetLookAtWeight(1);
+        animator.SetLookAtWeight(weightMultiplier);
+    }
+
+    public void FireGun()
+    {
+            GunBarrel.LookAt(AimTargetPosition);
+            GunBarrelPosition = GunBarrel.position;
+            Instantiate(Laser, GunBarrel);
+
     }
 }

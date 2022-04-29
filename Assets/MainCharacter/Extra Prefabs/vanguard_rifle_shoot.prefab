@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &480194844
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 480194845}
+  m_Layer: 0
+  m_Name: BarrelPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &480194845
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480194844}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.13, z: 0.69}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6995624267768326121}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &486278134
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,6 +172,7 @@ MonoBehaviour:
   Target: {fileID: 0}
   yRotationCorrection: -90
   xRotationCorrection: 130
+  vanguardAnimator: {fileID: 3494765395773978031}
 --- !u!1 &1194254617
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,7 +425,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 155f9dfa1bbac0b4ca007268db067ca3, type: 3}
       propertyPath: m_Name
-      value: vanguard_t_choonyung
+      value: vanguard_rifle_shoot
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 155f9dfa1bbac0b4ca007268db067ca3, type: 3}
       propertyPath: m_Controller
@@ -438,8 +469,11 @@ MonoBehaviour:
   RightHintWeight: 1
   LeftHintWeight: 1
   LeftHandGripWeight: 0.8
+  id: 0
+  Laser: {fileID: 1981046983979366, guid: e134ee2e99e300e49af9de8ca45c6f7f, type: 3}
   AimTarget: {fileID: 0}
   GunGripPoint: {fileID: 1194254618}
   RightHandHint: {fileID: 1896566958}
   LeftHandHint: {fileID: 486278135}
+  GunBarrel: {fileID: 480194845}
   animator: {fileID: 3494765395773978031}
