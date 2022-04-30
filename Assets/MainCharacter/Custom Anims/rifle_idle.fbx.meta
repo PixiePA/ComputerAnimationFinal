@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9f1980ca59e8f88449eb2d4282cd171a
+guid: 4b98f1ace6b5fa74c8f0a5d22ea0e9b1
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
@@ -19,14 +19,7 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Bone length in
-      copied configuration does not match position in animation file:\n\t'mixamorig:LeftUpLeg'
-      : position error = 7.843342 mm\n\t'mixamorig:LeftLeg' : position error = 25.608246
-      mm\n\t'mixamorig:LeftFoot' : position error = 66.841599 mm\n\t'mixamorig:LeftToeBase'
-      : position error = 6.105851 mm\n\t'mixamorig:RightUpLeg' : position error =
-      6.690070 mm\n\t'mixamorig:RightLeg' : position error = 23.117216 mm\n\t'mixamorig:RightFoot'
-      : position error = 67.619637 mm\n\t'mixamorig:RightToeBase' : position error
-      = 7.754951 mm\n"
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -46,14 +39,14 @@ ModelImporter:
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 29
+      lastFrame: 63
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -65,56 +58,22 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves:
-      - name: ikShoot
-        curve:
-          serializedVersion: 2
-          curve:
-          - serializedVersion: 3
-            time: 0
-            value: 0
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 0.037484586
-            value: 0.99468017
-            inSlope: -0.0009030841
-            outSlope: -0.0009030841
-            tangentMode: 0
-            weightedMode: 1
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 1
-            value: 1.00177
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          preInfinity: 3
-          postInfinity: 3
-          rotationOrder: 4
       - name: ikLeftHandOnGun
         curve:
           serializedVersion: 2
           curve:
           - serializedVersion: 3
-            time: -0.00097031146
-            value: 0.9995453
-            inSlope: -0.00038052307
-            outSlope: -0.00038052307
+            time: 0
+            value: 0.5
+            inSlope: 0
+            outSlope: 0
             tangentMode: 0
             weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 1
+            inWeight: 0
+            outWeight: 0
           - serializedVersion: 3
             time: 1
-            value: 0.998641
+            value: 0.4988098
             inSlope: 0
             outSlope: 0
             tangentMode: 0
@@ -124,14 +83,7 @@ ModelImporter:
           preInfinity: 3
           postInfinity: 3
           rotationOrder: 4
-      events:
-      - time: 0.18223229
-        functionName: FireGun
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: b25abafa32e25304f80c50e764e5aacd, type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
+      events: []
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

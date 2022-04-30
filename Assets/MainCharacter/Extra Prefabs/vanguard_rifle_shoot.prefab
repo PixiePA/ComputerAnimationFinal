@@ -197,7 +197,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1194254617}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.16, z: 0.468}
+  m_LocalPosition: {x: 0, y: 0.014, z: 0.407}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6995624267768326121}
@@ -425,12 +425,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 155f9dfa1bbac0b4ca007268db067ca3, type: 3}
       propertyPath: m_Name
-      value: vanguard_rifle_shoot
+      value: vanguard_t_choonyung
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 155f9dfa1bbac0b4ca007268db067ca3, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: a399f1c6e5152ed40925df7cba4e0707, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 155f9dfa1bbac0b4ca007268db067ca3, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 155f9dfa1bbac0b4ca007268db067ca3, type: 3}
 --- !u!1 &7913980014362817903 stripped
@@ -465,10 +469,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25abafa32e25304f80c50e764e5aacd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AimWeight: 0.2
+  AimWeight: 0.1
   RightHintWeight: 1
   LeftHintWeight: 1
   LeftHandGripWeight: 0.8
+  LeftHandRestingGripWeight: 0.2
   id: 0
   Laser: {fileID: 1981046983979366, guid: e134ee2e99e300e49af9de8ca45c6f7f, type: 3}
   AimTarget: {fileID: 0}

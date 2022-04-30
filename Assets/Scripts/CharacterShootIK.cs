@@ -8,6 +8,7 @@ public class CharacterShootIK : MonoBehaviour
     [SerializeField] float RightHintWeight = 0;
     [SerializeField] float LeftHintWeight = 0;
     [SerializeField] float LeftHandGripWeight = 0;
+    [SerializeField] float LeftHandRestingGripWeight = 0;
 
     [SerializeField] int id;
 
@@ -42,7 +43,7 @@ public class CharacterShootIK : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -65,7 +66,19 @@ public class CharacterShootIK : MonoBehaviour
         animator.SetIKHintPositionWeight(AvatarIKHint.RightElbow, RightHintWeight * weightMultiplier);
 
         animator.SetIKPosition(AvatarIKGoal.LeftHand, GunGripPointPosition);
-        animator.SetIKPositionWeight(AvatarIKGoal.LeftHand, LeftHandGripWeight * weightMultiplier);
+
+        float LeftHandWeight;
+
+        if (animator.GetFloat("ikLeftHandOnGun") <= 0.5f)
+        {
+            LeftHandWeight = Mathf.Lerp(0, LeftHandRestingGripWeight, animator.GetFloat("ikLeftHandOnGun") * 2);
+        }
+        else
+        {
+            LeftHandWeight = Mathf.Lerp(LeftHandRestingGripWeight, LeftHandGripWeight, (animator.GetFloat("ikLeftHandOnGun") - 0.5f) * 2);
+        }
+
+        animator.SetIKPositionWeight(AvatarIKGoal.LeftHand, LeftHandWeight);
 
         animator.SetIKHintPosition(AvatarIKHint.LeftElbow, LeftHandHintPosition);
         animator.SetIKHintPositionWeight(AvatarIKHint.LeftElbow, LeftHintWeight * weightMultiplier);
@@ -76,9 +89,8 @@ public class CharacterShootIK : MonoBehaviour
 
     public void FireGun()
     {
-            GunBarrel.LookAt(AimTargetPosition);
-            GunBarrelPosition = GunBarrel.position;
-            Instantiate(Laser, GunBarrel);
+        GunBarrel.LookAt(AimTarget.position);
+        Instantiate(Laser, GunBarrel);
 
     }
 }

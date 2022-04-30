@@ -8,6 +8,8 @@ public class GunRotationController : MonoBehaviour
     [SerializeField] float yRotationCorrection;
     [SerializeField] float xRotationCorrection;
 
+    Quaternion BaseRotation;
+
     [SerializeField] Animator vanguardAnimator;
     // Start is called before the first frame update
     private void Awake()
@@ -16,20 +18,25 @@ public class GunRotationController : MonoBehaviour
         {
             vanguardAnimator = GetComponent<Animator>();
         }
+
+        BaseRotation = transform.localRotation;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (vanguardAnimator.GetFloat("ikShoot") > 0.8f)
-        {
-            Quaternion currentRotation = transform.rotation;
-            transform.LookAt(Target);
-            Quaternion targetRotation = transform.rotation;
-            transform.rotation = Quaternion.Lerp(currentRotation, targetRotation, vanguardAnimator.GetFloat("ikShoot"));
 
-            transform.Rotate(Vector3.up, yRotationCorrection);
-            transform.Rotate(Vector3.left, xRotationCorrection);
-        }
+        transform.LookAt(Target);
+        transform.Rotate(Vector3.up, yRotationCorrection);
+        transform.Rotate(Vector3.left, xRotationCorrection);
+
+        Quaternion targetRotation = transform.localRotation;
+        transform.localRotation = Quaternion.Lerp(BaseRotation, targetRotation, vanguardAnimator.GetFloat("ikShoot"));
+
+
+
+
     }
+
 }
