@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class GunRotationController : MonoBehaviour
 {
-    [SerializeField] Transform Target;
+    [SerializeField] public Transform Target;
     [SerializeField] float yRotationCorrection;
     [SerializeField] float xRotationCorrection;
 
+
     Quaternion BaseRotation;
+    Quaternion targetRotation;
 
     [SerializeField] Animator vanguardAnimator;
     // Start is called before the first frame update
@@ -26,13 +28,15 @@ public class GunRotationController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Target)
+        {
+            transform.LookAt(Target);
+            transform.Rotate(Vector3.up, yRotationCorrection);
+            transform.Rotate(Vector3.left, xRotationCorrection);
 
-        transform.LookAt(Target);
-        transform.Rotate(Vector3.up, yRotationCorrection);
-        transform.Rotate(Vector3.left, xRotationCorrection);
-
-        Quaternion targetRotation = transform.localRotation;
-        transform.localRotation = Quaternion.Lerp(BaseRotation, targetRotation, vanguardAnimator.GetFloat("ikShoot"));
+            targetRotation = transform.localRotation;
+        }
+        transform.localRotation = Quaternion.Lerp(BaseRotation, targetRotation, vanguardAnimator.GetFloat("ikShoot")/2);
 
 
 

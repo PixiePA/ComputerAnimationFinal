@@ -9,12 +9,13 @@ public class CharacterShootIK : MonoBehaviour
     [SerializeField] float LeftHintWeight = 0;
     [SerializeField] float LeftHandGripWeight = 0;
     [SerializeField] float LeftHandRestingGripWeight = 0;
+    bool FireTrigger = false;
 
     [SerializeField] int id;
 
     [SerializeField] GameObject Laser;
 
-    [SerializeField] Transform AimTarget;
+    [SerializeField] public Transform AimTarget;
     Vector3 AimTargetPosition;
 
     [SerializeField] Transform GunGripPoint;
@@ -30,12 +31,18 @@ public class CharacterShootIK : MonoBehaviour
     Vector3 GunBarrelPosition;
 
     [SerializeField] Animator animator;
+    [SerializeField] GunRotationController gunRotationController;
     // Start is called before the first frame update
     private void Awake()
     {
         if (!animator)
         {
             animator = GetComponent<Animator>();
+        }
+
+        if (!gunRotationController)
+        {
+            gunRotationController = GetComponentInChildren<GunRotationController>();
         }
 
         //VanguardEvents.onGunFired += FireGun;
@@ -49,18 +56,39 @@ public class CharacterShootIK : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        AimTargetPosition = AimTarget.position;
+        if (AimTarget)
+        {
+            AimTargetPosition = AimTarget.position;
+        }
+        gunRotationController.Target = AimTarget;
+
         GunGripPointPosition = GunGripPoint.position;
         RightHandHintPosition = RightHandHint.position;
         LeftHandHintPosition = LeftHandHint.position;
+
+        if (FireTrigger)
+        {
+            GunBarrel.LookAt(AimTargetPosition);
+            Instantiate(Laser, GunBarrel);
+            AimTarget = null;
+            FireTrigger = false;
+        }
     }
 
     private void OnAnimatorIK(int layerIndex)
     {
         float weightMultiplier = animator.GetFloat("ikShoot");
 
-        animator.SetIKPosition(AvatarIKGoal.RightHand, AimTargetPosition);
-        animator.SetIKPositionWeight(AvatarIKGoal.RightHand, AimWeight * weightMultiplier);
+        if (AimTarget)
+        {
+            animator.SetIKPosition(AvatarIKGoal.RightHand, AimTargetPosition);
+            animator.SetIKPositionWeight(AvatarIKGoal.RightHand, AimWeight * weightMultiplier);
+        }
+        else
+        {
+            animator.SetIKPositionWeight(AvatarIKGoal.RightHand, 0);
+        }
+
 
         animator.SetIKHintPosition(AvatarIKHint.RightElbow, RightHandHintPosition);
         animator.SetIKHintPositionWeight(AvatarIKHint.RightElbow, RightHintWeight * weightMultiplier);
@@ -89,8 +117,6 @@ public class CharacterShootIK : MonoBehaviour
 
     public void FireGun()
     {
-        GunBarrel.LookAt(AimTarget.position);
-        Instantiate(Laser, GunBarrel);
-
+        FireTrigger = true;
     }
 }
