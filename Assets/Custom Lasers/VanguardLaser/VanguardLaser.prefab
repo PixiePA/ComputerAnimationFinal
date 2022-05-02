@@ -201,7 +201,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   globalProgressSpeed: 1.5
-  explosionPrefab: {fileID: 1116862508874840, guid: e2a5aa920757b9845b450b56e6b0f367, type: 3}
+  explosionPrefab: {fileID: 1460167264172202, guid: 5e61f98b46b00724a9bd6ceb7ee37674, type: 3}
   psEmbers: {fileID: 198249059208331884}
   trailParticleCount: 5
   moveHitToSource: 0.5
@@ -245,8 +245,8 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1974404303741354}
   serializedVersion: 7
-  lengthInSec: 1.5
-  simulationSpeed: 1
+  lengthInSec: 0.5
+  simulationSpeed: 3
   stopAction: 0
   cullingMode: 3
   ringBufferMode: 0

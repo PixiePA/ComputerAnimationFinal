@@ -8,12 +8,14 @@ public class CharacterShootIK : MonoBehaviour
     [SerializeField] float RightHintWeight = 0;
     [SerializeField] float LeftHintWeight = 0;
     [SerializeField] float LeftHandGripWeight = 0;
+    [SerializeField] float LeftHandRestingGripWeight = 0;
+    bool FireTrigger = false;
 
     [SerializeField] int id;
 
     [SerializeField] GameObject Laser;
 
-    [SerializeField] Transform AimTarget;
+    public Transform AimTarget;
     Vector3 AimTargetPosition;
 
     [SerializeField] Transform GunGripPoint;
@@ -29,6 +31,7 @@ public class CharacterShootIK : MonoBehaviour
     Vector3 GunBarrelPosition;
 
     [SerializeField] Animator animator;
+    [SerializeField] GunRotationController gunRotationController;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -37,48 +40,82 @@ public class CharacterShootIK : MonoBehaviour
             animator = GetComponent<Animator>();
         }
 
+        if (!gunRotationController)
+        {
+            gunRotationController = GetComponentInChildren<GunRotationController>();
+        }
+
         //VanguardEvents.onGunFired += FireGun;
     }
 
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        AimTargetPosition = AimTarget.position;
+        if (AimTarget)
+        {
+            AimTargetPosition = AimTarget.position;
+        }
+        gunRotationController.Target = AimTarget;
+
         GunGripPointPosition = GunGripPoint.position;
         RightHandHintPosition = RightHandHint.position;
         LeftHandHintPosition = LeftHandHint.position;
+
+        if (FireTrigger)
+        {
+            GunBarrel.LookAt(AimTargetPosition);
+            Instantiate(Laser, GunBarrel);
+            AimTarget = null;
+            FireTrigger = false;
+        }
     }
 
     private void OnAnimatorIK(int layerIndex)
     {
         float weightMultiplier = animator.GetFloat("ikShoot");
 
-        animator.SetIKPosition(AvatarIKGoal.RightHand, AimTargetPosition);
-        animator.SetIKPositionWeight(AvatarIKGoal.RightHand, AimWeight * weightMultiplier);
+        if (AimTarget)
+        {
+            animator.SetIKPosition(AvatarIKGoal.RightHand, AimTargetPosition);
+            animator.SetIKPositionWeight(AvatarIKGoal.RightHand, AimWeight * weightMultiplier);
+            animator.SetLookAtPosition(AimTargetPosition);
+            animator.SetLookAtWeight(weightMultiplier);
+        }
+        else
+        {
+            animator.SetIKPositionWeight(AvatarIKGoal.RightHand, 0);
+            animator.SetLookAtWeight(0);
+        }
+
 
         animator.SetIKHintPosition(AvatarIKHint.RightElbow, RightHandHintPosition);
         animator.SetIKHintPositionWeight(AvatarIKHint.RightElbow, RightHintWeight * weightMultiplier);
 
         animator.SetIKPosition(AvatarIKGoal.LeftHand, GunGripPointPosition);
-        animator.SetIKPositionWeight(AvatarIKGoal.LeftHand, LeftHandGripWeight * weightMultiplier);
 
-        animator.SetIKHintPosition(AvatarIKHint.LeftElbow, LeftHandHintPosition);
-        animator.SetIKHintPositionWeight(AvatarIKHint.LeftElbow, LeftHintWeight * weightMultiplier);
+        float LeftHandWeight;
 
-        animator.SetLookAtPosition(AimTargetPosition);
-        animator.SetLookAtWeight(weightMultiplier);
+        if (animator.GetFloat("ikLeftHandOnGun") <= 0.5f)
+        {
+            LeftHandWeight = Mathf.Lerp(0, LeftHandRestingGripWeight, animator.GetFloat("ikLeftHandOnGun") * 2);
+        }
+        else
+        {
+            LeftHandWeight = Mathf.Lerp(LeftHandRestingGripWeight, LeftHandGripWeight, (animator.GetFloat("ikLeftHandOnGun") - 0.5f) * 2);
+        }
+
+        animator.SetIKPositionWeight(AvatarIKGoal.LeftHand, LeftHandWeight);
+
+
     }
 
     public void FireGun()
     {
-            GunBarrel.LookAt(AimTargetPosition);
-            GunBarrelPosition = GunBarrel.position;
-            Instantiate(Laser, GunBarrel);
-
+        FireTrigger = true;
     }
 }

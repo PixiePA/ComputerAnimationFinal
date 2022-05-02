@@ -56,12 +56,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486278134}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.439, y: 1.22, z: 0.197}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalRotation: {x: 0.00000004470348, y: -3.885316e-12, z: -0.000086868335, w: 1}
+  m_LocalPosition: {x: -0.3714783, y: -0.2909742, z: 0.25518972}
+  m_LocalScale: {x: 0.20000002, y: 0.2, z: 0.20000002}
   m_Children: []
-  m_Father: {fileID: 7394851523770101717}
-  m_RootOrder: 3
+  m_Father: {fileID: 4648623435203102922}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &486278138
 MeshFilter:
@@ -197,7 +197,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1194254617}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.16, z: 0.468}
+  m_LocalPosition: {x: 0, y: 0.014, z: 0.407}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6995624267768326121}
@@ -229,12 +229,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1896566957}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.448, y: 1.152, z: -0.3}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalRotation: {x: 0.000000014901161, y: -1.2984812e-12, z: -0.00008709489, w: 1}
+  m_LocalPosition: {x: 0.37998393, y: -0.35910496, z: -0.24121796}
+  m_LocalScale: {x: 0.20000002, y: 0.2, z: 0.20000002}
   m_Children: []
-  m_Father: {fileID: 7394851523770101717}
-  m_RootOrder: 4
+  m_Father: {fileID: 227959459379212707}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1896566961
 MeshFilter:
@@ -431,6 +431,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: a399f1c6e5152ed40925df7cba4e0707, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 155f9dfa1bbac0b4ca007268db067ca3, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 155f9dfa1bbac0b4ca007268db067ca3, type: 3}
 --- !u!1 &7913980014362817903 stripped
@@ -438,14 +442,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 155f9dfa1bbac0b4ca007268db067ca3, type: 3}
   m_PrefabInstance: {fileID: 6995624269802620990}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &7394851523770101717 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 155f9dfa1bbac0b4ca007268db067ca3, type: 3}
-  m_PrefabInstance: {fileID: 6995624269802620990}
-  m_PrefabAsset: {fileID: 0}
 --- !u!95 &3494765395773978031 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 155f9dfa1bbac0b4ca007268db067ca3, type: 3}
+  m_PrefabInstance: {fileID: 6995624269802620990}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4648623435203102922 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -6803169544883306252, guid: 155f9dfa1bbac0b4ca007268db067ca3, type: 3}
+  m_PrefabInstance: {fileID: 6995624269802620990}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &227959459379212707 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7078722787440015773, guid: 155f9dfa1bbac0b4ca007268db067ca3, type: 3}
   m_PrefabInstance: {fileID: 6995624269802620990}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8692193568053540854 stripped
@@ -465,10 +474,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25abafa32e25304f80c50e764e5aacd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AimWeight: 0.2
+  AimWeight: 0.1
   RightHintWeight: 1
   LeftHintWeight: 1
   LeftHandGripWeight: 0.8
+  LeftHandRestingGripWeight: 0.2
   id: 0
   Laser: {fileID: 1981046983979366, guid: e134ee2e99e300e49af9de8ca45c6f7f, type: 3}
   AimTarget: {fileID: 0}
@@ -477,3 +487,4 @@ MonoBehaviour:
   LeftHandHint: {fileID: 486278135}
   GunBarrel: {fileID: 480194845}
   animator: {fileID: 3494765395773978031}
+  gunRotationController: {fileID: 754125681}
