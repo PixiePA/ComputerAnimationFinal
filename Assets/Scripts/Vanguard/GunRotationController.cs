@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GunRotationController : MonoBehaviour
 {
-    [SerializeField] public Transform Target;
+    public Transform Target;
     [SerializeField] float yRotationCorrection;
     [SerializeField] float xRotationCorrection;
 
@@ -22,6 +22,7 @@ public class GunRotationController : MonoBehaviour
         }
 
         BaseRotation = transform.localRotation;
+        targetRotation = BaseRotation;
 
     }
 

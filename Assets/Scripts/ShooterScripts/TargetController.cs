@@ -21,7 +21,7 @@ public class TargetController : MonoBehaviour
         
         if (this.targetID == targetID)
         {
-            GunEvents.ShootAtTarget(shooterID, gameObject.transform);
+            GunEvents.IdentifyTarget(shooterID, gameObject.transform);
         }
     }
 }
