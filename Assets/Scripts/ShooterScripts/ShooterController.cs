@@ -8,15 +8,15 @@ public abstract class ShooterController : MonoBehaviour
 
     private void OnEnable()
     {
-        GunEvents.onShootAtTarget += ShootAtTarget;
+        GunEvents.onIdentifyTarget += AimAtTarget;
     }
 
     private void OnDisable()
     {
-        GunEvents.onShootAtTarget -= ShootAtTarget;
+        GunEvents.onIdentifyTarget -= AimAtTarget;
     }
 
-    abstract protected void ShootAtTarget(int shooterID, Transform target);
+    abstract protected void AimAtTarget(int shooterID, Transform target);
 
     protected void FindTarget(int targetID)
     {

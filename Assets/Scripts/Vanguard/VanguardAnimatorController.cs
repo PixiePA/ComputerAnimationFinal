@@ -16,7 +16,18 @@ public class VanguardAnimatorController : ShooterController
         set
         {
             isGunReady = value;
-            SetGunReadyFlag();
+            vanguardAnimator.SetBool("bIsRifleReady", isGunReady);
+        }
+    }
+
+    bool isCrouched;
+    public bool IsCrouched
+    {
+        get => isCrouched;
+        set
+        {
+            isCrouched = value;
+            vanguardAnimator.SetBool("bIsCrouching", isCrouched);
         }
     }
 
@@ -34,12 +45,11 @@ public class VanguardAnimatorController : ShooterController
         if (!vanguardShootIK) vanguardShootIK = GetComponentInChildren<CharacterShootIK>();
     }
 
-    protected override void ShootAtTarget(int shooterID, Transform target)
+    protected override void AimAtTarget(int shooterID, Transform target)
     {
         if (this.shooterID == shooterID)
         {
             vanguardShootIK.AimTarget = target;
-            vanguardAnimator.SetTrigger("shootRifle");
         }
     }
 
@@ -57,11 +67,21 @@ public class VanguardAnimatorController : ShooterController
     public void FireGun(int targetID)
     {
         FindTarget(targetID);
+        vanguardAnimator.SetTrigger("shootRifle");
     }
 
-
-    private void SetGunReadyFlag()
+    public void AimGun(int targetID)
     {
-        vanguardAnimator.SetBool("bIsRifleReady", IsGunReady);
+        FindTarget(targetID);
+    }
+
+    public void StartCrouch()
+    {
+        IsCrouched = true;
+    }
+
+    public void StopCrouch()
+    {
+        IsCrouched = false;
     }
 }

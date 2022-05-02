@@ -14,12 +14,12 @@ public static class GunEvents
         }
     }
 
-    public static Action<int, Transform> onShootAtTarget;
-    public static void ShootAtTarget(int shooterID, Transform target)
+    public static Action<int, Transform> onIdentifyTarget;
+    public static void IdentifyTarget(int shooterID, Transform target)
     {
-        if (onShootAtTarget != null)
+        if (onIdentifyTarget != null)
         {
-            onShootAtTarget(shooterID, target);
+            onIdentifyTarget(shooterID, target);
         }
     }
 }

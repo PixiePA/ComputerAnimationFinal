@@ -15,7 +15,7 @@ public class CharacterShootIK : MonoBehaviour
 
     [SerializeField] GameObject Laser;
 
-    [SerializeField] public Transform AimTarget;
+    public Transform AimTarget;
     Vector3 AimTargetPosition;
 
     [SerializeField] Transform GunGripPoint;
@@ -83,10 +83,13 @@ public class CharacterShootIK : MonoBehaviour
         {
             animator.SetIKPosition(AvatarIKGoal.RightHand, AimTargetPosition);
             animator.SetIKPositionWeight(AvatarIKGoal.RightHand, AimWeight * weightMultiplier);
+            animator.SetLookAtPosition(AimTargetPosition);
+            animator.SetLookAtWeight(weightMultiplier);
         }
         else
         {
             animator.SetIKPositionWeight(AvatarIKGoal.RightHand, 0);
+            animator.SetLookAtWeight(0);
         }
 
 
@@ -108,11 +111,7 @@ public class CharacterShootIK : MonoBehaviour
 
         animator.SetIKPositionWeight(AvatarIKGoal.LeftHand, LeftHandWeight);
 
-        animator.SetIKHintPosition(AvatarIKHint.LeftElbow, LeftHandHintPosition);
-        animator.SetIKHintPositionWeight(AvatarIKHint.LeftElbow, LeftHintWeight * weightMultiplier);
 
-        animator.SetLookAtPosition(AimTargetPosition);
-        animator.SetLookAtWeight(weightMultiplier);
     }
 
     public void FireGun()
