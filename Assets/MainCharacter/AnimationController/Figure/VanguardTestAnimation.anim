@@ -62,6 +62,15 @@ AnimationClip:
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
+        time: 0.95
+        value: {x: 4, y: 0, z: 5.5}
+        inSlope: {x: -2.8731396, y: 0, z: 3.0304835}
+        outSlope: {x: -2.8731396, y: 0, z: 3.0304835}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.29240724, y: 0.33333334, z: 0.37548304}
+      - serializedVersion: 3
         time: 1.4666667
         value: {x: 3.5, y: 0, z: 6}
         inSlope: {x: 0, y: 0, z: 0}
@@ -98,22 +107,22 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.0833334
+        time: 0.95
         value: 0.8
         inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
+        outSlope: -2.646567
+        tangentMode: 1
+        weightedMode: 2
         inWeight: 0.33333334
-        outWeight: 0.33333334
+        outWeight: 0.30933702
       - serializedVersion: 3
         time: 1.4833333
         value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
+        inSlope: -0.6809718
+        outSlope: -0.6809718
+        tangentMode: 0
+        weightedMode: 1
+        inWeight: 0.6616272
         outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -186,6 +195,15 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
+        time: 0.95
+        value: 4
+        inSlope: -2.8731396
+        outSlope: -2.8731396
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.29240724
+      - serializedVersion: 3
         time: 1.4666667
         value: 3.5
         inSlope: 0
@@ -215,6 +233,15 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.95
         value: 0
         inSlope: 0
         outSlope: 0
@@ -260,6 +287,15 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
+        time: 0.95
+        value: 5.5
+        inSlope: 3.0304835
+        outSlope: 3.0304835
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.37548304
+      - serializedVersion: 3
         time: 1.4666667
         value: 6
         inSlope: 0
@@ -297,22 +333,22 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.0833334
+        time: 0.95
         value: 0.8
         inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
+        outSlope: -2.646567
+        tangentMode: 1
+        weightedMode: 2
         inWeight: 0.33333334
-        outWeight: 0.33333334
+        outWeight: 0.30933702
       - serializedVersion: 3
         time: 1.4833333
         value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
+        inSlope: -0.6809718
+        outSlope: -0.6809718
+        tangentMode: 0
+        weightedMode: 1
+        inWeight: 0.6616272
         outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -466,7 +502,7 @@ AnimationClip:
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 1.0666667
+  - time: 1.05
     functionName: SetGunIsReady
     data: 
     objectReferenceParameter: {fileID: 0}

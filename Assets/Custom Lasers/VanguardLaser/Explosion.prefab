@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4901475986778136}
   - component: {fileID: 108821382563304190}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point light For Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 4479676920926842}
   - component: {fileID: 198099891855446370}
   - component: {fileID: 199172482693401030}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Explosion_SmokeLit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4997,7 +4997,7 @@ GameObject:
   - component: {fileID: 114078205634680416}
   - component: {fileID: 114187190650857692}
   - component: {fileID: 82725179332425514}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5157,7 +5157,7 @@ GameObject:
   - component: {fileID: 4439553472839588}
   - component: {fileID: 198039786785437002}
   - component: {fileID: 199487984529231184}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Explosion_AfterFire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10040,7 +10040,7 @@ GameObject:
   - component: {fileID: 4444012635627226}
   - component: {fileID: 198558400334160786}
   - component: {fileID: 199836216045442758}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LightsOnly
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14933,7 +14933,7 @@ GameObject:
   - component: {fileID: 4347483184125878}
   - component: {fileID: 198918896879697732}
   - component: {fileID: 199416659210098072}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Explosion_Embers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
