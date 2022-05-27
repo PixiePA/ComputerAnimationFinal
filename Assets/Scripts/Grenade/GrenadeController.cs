@@ -10,6 +10,8 @@ public class GrenadeController : MonoBehaviour
     [SerializeField] GameObject explosion;
     [SerializeField] float explosionSize = 2;
 
+    public bool useTimer;
+
     private float fuseTimer;
     // Start is called before the first frame update
     void Start()
@@ -22,13 +24,18 @@ public class GrenadeController : MonoBehaviour
     {
         if ((fuseTimer -= Time.deltaTime) <= 0)
         {
-            GameObject spawnedExplosion = Instantiate(explosion, transform.position, Quaternion.identity);
-            foreach (Transform transform in spawnedExplosion.GetComponentsInChildren<Transform>())
-            {
-                transform.localScale = new Vector3(explosionSize, explosionSize, explosionSize);
-            }
-            Destroy(this.gameObject);
+            if (useTimer) Explode();
         }
         animator.SetFloat("pulseSpeed", pulseRate);
+    }
+
+    void Explode()
+    {
+        GameObject spawnedExplosion = Instantiate(explosion, transform.position, Quaternion.identity);
+        foreach (Transform transform in spawnedExplosion.GetComponentsInChildren<Transform>())
+        {
+            transform.localScale = new Vector3(explosionSize, explosionSize, explosionSize);
+        }
+        Destroy(this.gameObject);
     }
 }
