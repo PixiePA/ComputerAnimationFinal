@@ -84,4 +84,36 @@ public class VanguardAnimatorController : ShooterController
     {
         IsCrouched = false;
     }
+
+    public void Dodge()
+    {
+        vanguardAnimator.SetTrigger("dodge");
+    }
+
+    public void SetDeathTrigger()
+    {
+        vanguardAnimator.ResetTrigger("resetDeath");
+        vanguardAnimator.SetTrigger("isKilled");
+    }
+
+    public void SetRespawnTrigger()
+    {
+        vanguardAnimator.ResetTrigger("isKilled");
+        vanguardAnimator.SetTrigger("resetDeath");
+    }
+
+    public void StartBracing()
+    {
+        vanguardAnimator.SetBool("isBracingAgainstCover", true);
+    }
+
+    public void StopBracing()
+    {
+        vanguardAnimator.SetBool("isBracingAgainstCover", false);
+    }
+
+    public void Kick()
+    {
+        vanguardAnimator.SetTrigger("kick");
+    }
 }

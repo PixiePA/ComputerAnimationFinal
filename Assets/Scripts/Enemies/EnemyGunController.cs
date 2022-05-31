@@ -9,8 +9,6 @@ public class EnemyGunController : MonoBehaviour
     //Vector3 BarrelPosition;
     bool FireTriggered;
 
-    public float speed; 
-
     Transform targetTransform;
 
     public void FireGun()

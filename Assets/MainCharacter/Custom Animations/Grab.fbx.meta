@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d9e4d1f7f39419e499a6b965e6434ca7
+guid: 4f2a04ad7fe91d74aad865725559081f
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
@@ -39,7 +39,7 @@ ModelImporter:
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 126
+      lastFrame: 275
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -58,13 +58,22 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves:
-      - name: ikLeftHandOnGun
+      - name: grabIK
         curve:
           serializedVersion: 2
           curve:
           - serializedVersion: 3
             time: 0
-            value: 0.5
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.37082365
+            value: 0.99290127
             inSlope: 0
             outSlope: 0
             tangentMode: 0
@@ -73,7 +82,7 @@ ModelImporter:
             outWeight: 0
           - serializedVersion: 3
             time: 1
-            value: 0.5
+            value: 0
             inSlope: 0
             outSlope: 0
             tangentMode: 0
@@ -83,7 +92,14 @@ ModelImporter:
           preInfinity: 3
           postInfinity: 3
           rotationOrder: 4
-      events: []
+      events:
+      - time: 0.36842108
+        functionName: TakeObject
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 64826eaa4948012478cf3ad251f27f3b, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
