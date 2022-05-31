@@ -111,4 +111,9 @@ public class VanguardAnimatorController : ShooterController
     {
         vanguardAnimator.SetBool("isBracingAgainstCover", false);
     }
+
+    public void Kick()
+    {
+        vanguardAnimator.SetTrigger("kick");
+    }
 }
