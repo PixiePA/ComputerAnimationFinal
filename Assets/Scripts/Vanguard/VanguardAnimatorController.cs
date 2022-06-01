@@ -9,6 +9,8 @@ public class VanguardAnimatorController : ShooterController
     [SerializeField] CharacterShootIK vanguardShootIK;
 
     [SerializeField] float speed;
+    [SerializeField] float animationSpeed = 1;
+
     bool isGunReady;
     public bool IsGunReady
     {
@@ -33,7 +35,22 @@ public class VanguardAnimatorController : ShooterController
 
     private void Update()
     {
-        vanguardAnimator.SetFloat("speed", speed);    
+        vanguardAnimator.SetFloat("speed", speed);
+        if (vanguardAnimator.recorderMode != AnimatorRecorderMode.Offline)
+        {
+            vanguardAnimator.speed = animationSpeed;
+        }
+        else
+        {
+            vanguardAnimator.speed = Mathf.Max(0, animationSpeed);
+        }
+        if (vanguardAnimator.recorderMode == AnimatorRecorderMode.Playback)
+        {
+            if (vanguardAnimator.playbackTime == (vanguardAnimator.recorderStopTime - vanguardAnimator.recorderStartTime))
+            {
+                vanguardAnimator.StopPlayback();
+            }
+        }
     }
 
     // Start is called before the first frame update
@@ -115,5 +132,32 @@ public class VanguardAnimatorController : ShooterController
     public void Kick()
     {
         vanguardAnimator.SetTrigger("kick");
+    }
+
+    public void StartRecordingMotion()
+    {
+        vanguardAnimator.StartRecording(1000);
+        Debug.Log(vanguardAnimator.recorderMode);
+    }
+
+    public void StopRecordingMotion()
+    {
+        vanguardAnimator.StopRecording();
+    }
+
+    public void StartPlayback()
+    {
+        vanguardAnimator.StartPlayback();
+    }
+
+    public void StopPlayback()
+    {
+        vanguardAnimator.StopPlayback();
+        vanguardAnimator.SetTrigger("fullReset");
+    }
+
+    public void ResetAllLayerOverrides()
+    {
+        vanguardAnimator.SetTrigger("fullReset");
     }
 }
