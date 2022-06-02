@@ -1948,7 +1948,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: ScoreStrongerPt2
   - m_Version: 1
-    m_Start: 51.258624999999995
+    m_Start: 51.516666666666666
     m_ClipIn: 0
     m_Asset: {fileID: -2833925951355649607}
     m_Duration: 16.400708333333334
