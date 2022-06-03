@@ -51,14 +51,14 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 5.016667
+  - time: 4.15
     functionName: FindTarget
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 17
     messageOptions: 0
-  - time: 6.633333
+  - time: 6.016667
     functionName: FireGun
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -72,7 +72,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 18
     messageOptions: 0
-  - time: 9.066667
+  - time: 8.483334
     functionName: FireGun
     data: 
     objectReferenceParameter: {fileID: 0}

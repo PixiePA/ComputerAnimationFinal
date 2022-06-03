@@ -2616,17 +2616,24 @@ AnimationClip:
     floatParameter: 0
     intParameter: 13
     messageOptions: 0
-  - time: 44.983334
+  - time: 44.75
     functionName: FireGun
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 14
     messageOptions: 0
-  - time: 46.516666
+  - time: 45
     functionName: FireGun
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 15
+    messageOptions: 0
+  - time: 47.15
+    functionName: FireGun
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 20
     messageOptions: 0

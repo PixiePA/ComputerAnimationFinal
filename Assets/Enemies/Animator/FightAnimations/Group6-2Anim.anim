@@ -566,7 +566,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 17
     messageOptions: 0
-  - time: 7.483333
+  - time: 7.4166665
     functionName: FlyingDeath
     data: 
     objectReferenceParameter: {fileID: 0}
