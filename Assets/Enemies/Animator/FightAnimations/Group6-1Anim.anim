@@ -338,21 +338,21 @@ AnimationClip:
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 3.0333333
+  - time: 4.766667
     functionName: FireGun
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 17
     messageOptions: 0
-  - time: 4.0333333
+  - time: 5.7166667
     functionName: FindTarget
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 16
     messageOptions: 0
-  - time: 5.6833334
+  - time: 6.4333334
     functionName: FireGun
     data: 
     objectReferenceParameter: {fileID: 0}
