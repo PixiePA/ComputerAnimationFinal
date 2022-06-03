@@ -82,8 +82,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.024040222
-        value: 0.037239075
+        time: 0
+        value: 0.191082
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -91,8 +91,17 @@ LineRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.983173
-        value: 0.40425533
+        time: 0.05280471
+        value: 0.7658131
+        inSlope: 0.72477174
+        outSlope: 0.72477174
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -489,8 +498,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.1
-      minScalar: 0.05
+      scalar: 0.5
+      minScalar: 0.1
       maxCurve:
         serializedVersion: 2
         m_Curve:
